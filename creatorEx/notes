@@ -1,0 +1,18 @@
+NOTES ON THIS EXAMPLE:
+
+This is a full implemenation of the example listed on fraps website located here:
+
+  http://fortrancython.wordpress.com/
+
+Needed in addition to included code:
+  fortran parser f2py
+  mercurial required to install fortran parser
+    sudo apt-get install mercurial
+    hg clone http://f2py.googlecode.com/hg/ f2py
+    ln -s ../f2py/fparser fwrap/fparser
+  install fwrap from source:
+    https://github.com/kwmsmith/fwrap/blob/master/INSTALL.txt
+    python setup.py install
+  NOTE: above only nessescary if you get the dev version.  Binary install works fine.
+  install scons: 
+    sudo apt-get install scons
