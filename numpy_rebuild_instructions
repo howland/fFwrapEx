@@ -1,6 +1,8 @@
 System requirements notes:
 
-fWrap is dependant on numpy.scons, a sub library used in numpy that was removed as of numpy version 1.8.  In order to be able to use fWrap, you must have numpy 1.7.$ installed. I have attatched a copy of the numpy 1.7.0 package for convenience.
+fWrap is dependant on numpy.scons, a sub library used in numpy that was removed as of numpy version 1.8.  In order to be able to use fWrap, you must have numpy 1.7.$ installed. Below is a link to a linux distribution of 1.7.0:
+
+  http://sourceforge.net/projects/numpy/files/NumPy/1.7.0/numpy-1.7.0.tar.gz/download
 
 Instructions:
   (1) type "pip uninstall numpy"
