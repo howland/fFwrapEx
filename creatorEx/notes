@@ -6,17 +6,26 @@ This is a full implemenation of the example listed on fraps website located here
 
 Needed in addition to included code:
   fortran parser f2py
-  mercurial required to install fortran parser
-    sudo apt-get install mercurial
-    hg clone http://f2py.googlecode.com/hg/ f2py
-    ln -s ../f2py/fparser fwrap/fparser
-  install fwrap from source:
+IMPORTANT:  Must install fwrap from NEW source.. not listed on blog.  Github repository has not been updated since 2010.
     https://github.com/kwmsmith/fwrap/blob/master/INSTALL.txt
-    python setup.py install
-  NOTE: above only nessescary if you get the dev version.  Binary install works fine.
-  install scons: 
-    sudo apt-get install scons
+  NEWER SOURCE: (updated in 2010)
+    https://bitbucket.org/kwmsmith/fwrap-dev
+
+Instalation instructions (need to be followed):
+
+1) get f2py from googlecode:
+  hg clone https://f2py.googlecode.com/hg/ f2py
+*(Note that ../../ below indicates that the above line should be excecuted from your desktop)
+2) put a symbolic link from the f2py/fparser package in
+fwrap-dev/fwrap/ directory.
+
+$ cd fwrap-dev/fwrap
+$ ln -s ../../f2py/fparser # adjust for location
+
+Then 'python setup.py install' should work.
 
 Wrapping complie flags:
   fwrapc source.f90 --build --name=one_arg --fcompiler=gnu95 --f90exec=/usr/bin/gfortran-4.8 -L/usr/lib/gcc/x86_linux-gnu/4.8.2 -lgfortran
 
+issue:  numpy.scons does not exist?  SCons is a seperate build library..
+        
