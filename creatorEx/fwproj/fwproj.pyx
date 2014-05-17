@@ -1,5 +1,5 @@
 """
-The one_arg module was generated with Fwrap v0.1.1.
+The fwproj module was generated with Fwrap v0.1.1.
 
 Below is a listing of functions and data types.
 For usage information see the function docstrings.
