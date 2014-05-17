@@ -16,3 +16,7 @@ Needed in addition to included code:
   NOTE: above only nessescary if you get the dev version.  Binary install works fine.
   install scons: 
     sudo apt-get install scons
+
+Wrapping complie flags:
+  fwrapc source.f90 --build --name=one_arg --fcompiler=gnu95 --f90exec=/usr/bin/gfortran-4.8 -L/usr/lib/gcc/x86_linux-gnu/4.8.2 -lgfortran
+
