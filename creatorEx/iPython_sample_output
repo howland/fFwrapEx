@@ -1,0 +1,61 @@
+Sample python output:
+
+
+
+
+
+IPython 1.1.0 -- An enhanced Interactive Python.
+?         -> Introduction and overview of IPython's features.
+%quickref -> Quick reference.
+help      -> Python's own help system.
+object?   -> Details about 'object', use 'object??' for extra details.
+
+In [1]: import one_arg
+---------------------------------------------------------------------------
+RuntimeError                              Traceback (most recent call last)
+RuntimeError: module compiled against API version 9 but this version of numpy is 7
+
+In [2]: one_arg?
+Type:       module
+String Form:<module 'one_arg' from 'one_arg.so'>
+File:       /home/josh/Desktop/fFwrapEx/creatorEx/one_arg/one_arg.so
+Docstring:
+The one_arg module was generated with Fwrap v0.2.0_dev.
+
+Below is a listing of functions and data types.
+For usage information see the function docstrings.
+
+Functions
+---------
+one_arg(...)
+
+Data Types
+----------
+fw_character
+fwi_integer
+fwi_npy_intp
+fwr_real_8
+
+In [3]: one_arg.one_arg?
+Type:       builtin_function_or_method
+String Form:<built-in function one_arg>
+Docstring:
+one_arg(a) -> (fw_ret_arg, a)
+
+Parameters
+----------
+a : fwr_real_8, 2D array, dimension(:, :), intent inout
+
+Returns
+-------
+fw_ret_arg : fwi_integer, intent out
+a : fwr_real_8, 2D array, dimension(:, :), intent inout
+
+In [4]: one_arg.one_arg([[1,2,3],[4,5,6]])
+Out[4]: 
+(42,
+ array([[ 1.61803399,  1.61803399,  1.61803399],
+       [ 1.61803399,  1.61803399,  1.61803399]]))
+
+In [5]: 
+

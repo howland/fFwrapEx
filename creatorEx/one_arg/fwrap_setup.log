@@ -1,0 +1,285 @@
+non-existing path in '': '/usr/lib/gcc/x86_linux-gnu/4.8.2'
+[39mrunning config[0m
+[39mrunning config_fc[0m
+[39munifing config_fc, config, build_clib, build_ext, build commands --fcompiler options[0m
+[39mrunning build_src[0m
+[39mbuild_src[0m
+[39mbuilding extension "one_arg" sources[0m
+
+subroutine outer(a)
+  use, intrinsic :: iso_c_binding
+  implicit none
+  integer(kind=c_signed_char), intent(inout) :: a
+  interface
+    subroutine inner(a)
+      use, intrinsic :: iso_c_binding
+      implicit none
+      integer(kind=kind(0)), intent(inout) :: a
+    end subroutine inner
+  end interface
+  call inner(a)
+end subroutine outer
+
+[39mcustomize Gnu95FCompiler[0m
+[32mFound executable /usr/bin/gfortran-4.8[0m
+[32mFound executable /usr/bin/gfortran[0m
+[39mcustomize Gnu95FCompiler using fw_config[0m
+[39mFortran f77 compiler: /usr/bin/gfortran-4.8 -Wall -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran-4.8 -Wall -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran-4.8 -Wall -ffixed-form -fno-second-underscore -Wall -fno-second-underscore -fPIC -O3 -funroll-loops[0m
+[39mcompile options: '-c'[0m
+[39mgfortran-4.8:f90: _configtest.f90[0m
+_configtest.f90:13.13:
+
+  call inner(a)
+             1
+Error: Type mismatch in argument 'a' at (1); passed INTEGER(1) to INTEGER(4)
+[39mfailure.[0m
+[39mremoving: _configtest.f90 _configtest.o[0m
+
+subroutine outer(a)
+  use, intrinsic :: iso_c_binding
+  implicit none
+  integer(kind=c_short), intent(inout) :: a
+  interface
+    subroutine inner(a)
+      use, intrinsic :: iso_c_binding
+      implicit none
+      integer(kind=kind(0)), intent(inout) :: a
+    end subroutine inner
+  end interface
+  call inner(a)
+end subroutine outer
+
+[39mFortran f77 compiler: /usr/bin/gfortran-4.8 -Wall -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran-4.8 -Wall -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran-4.8 -Wall -ffixed-form -fno-second-underscore -Wall -fno-second-underscore -fPIC -O3 -funroll-loops[0m
+[39mcompile options: '-c'[0m
+[39mgfortran-4.8:f90: _configtest.f90[0m
+_configtest.f90:13.13:
+
+  call inner(a)
+             1
+Error: Type mismatch in argument 'a' at (1); passed INTEGER(2) to INTEGER(4)
+[39mfailure.[0m
+[39mremoving: _configtest.f90 _configtest.o[0m
+
+subroutine outer(a)
+  use, intrinsic :: iso_c_binding
+  implicit none
+  integer(kind=c_int), intent(inout) :: a
+  interface
+    subroutine inner(a)
+      use, intrinsic :: iso_c_binding
+      implicit none
+      integer(kind=kind(0)), intent(inout) :: a
+    end subroutine inner
+  end interface
+  call inner(a)
+end subroutine outer
+
+[39mFortran f77 compiler: /usr/bin/gfortran-4.8 -Wall -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran-4.8 -Wall -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran-4.8 -Wall -ffixed-form -fno-second-underscore -Wall -fno-second-underscore -fPIC -O3 -funroll-loops[0m
+[39mcompile options: '-c'[0m
+[39mgfortran-4.8:f90: _configtest.f90[0m
+[39msuccess![0m
+[39mremoving: _configtest.f90 _configtest.o[0m
+
+subroutine outer(a)
+  use, intrinsic :: iso_c_binding
+  implicit none
+  character(kind=c_char), intent(inout) :: a
+  interface
+    subroutine inner(a)
+      use, intrinsic :: iso_c_binding
+      implicit none
+      character(1), intent(inout) :: a
+    end subroutine inner
+  end interface
+  call inner(a)
+end subroutine outer
+
+[39mFortran f77 compiler: /usr/bin/gfortran-4.8 -Wall -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran-4.8 -Wall -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran-4.8 -Wall -ffixed-form -fno-second-underscore -Wall -fno-second-underscore -fPIC -O3 -funroll-loops[0m
+[39mcompile options: '-c'[0m
+[39mgfortran-4.8:f90: _configtest.f90[0m
+[39msuccess![0m
+[39mremoving: _configtest.f90 _configtest.o[0m
+[39mC compiler: gcc -pthread -fno-strict-aliasing -g -O2 -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC
+[0m
+[39mcompile options: '-I/home/josh/anaconda/include/python2.7 -I/home/josh/anaconda/lib/python2.7/site-packages/numpy/core/include -c'[0m
+[39mgcc: _configtest.c[0m
+[39mremoving: _configtest.c _configtest.o[0m
+[39mC compiler: gcc -pthread -fno-strict-aliasing -g -O2 -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC
+[0m
+[39mcompile options: '-I/home/josh/anaconda/include/python2.7 -I/home/josh/anaconda/lib/python2.7/site-packages/numpy/core/include -c'[0m
+[39mgcc: _configtest.c[0m
+In file included from /home/josh/anaconda/lib/python2.7/site-packages/numpy/core/include/numpy/ndarraytypes.h:1728:0,
+                 from /home/josh/anaconda/lib/python2.7/site-packages/numpy/core/include/numpy/ndarrayobject.h:17,
+                 from /home/josh/anaconda/lib/python2.7/site-packages/numpy/core/include/numpy/arrayobject.h:15,
+                 from _configtest.c:2:
+/home/josh/anaconda/lib/python2.7/site-packages/numpy/core/include/numpy/npy_deprecated_api.h:11:2: warning: #warning "Using deprecated NumPy API, disable it by #defining NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION" [-Wcpp]
+ #warning "Using deprecated NumPy API, disable it by #defining NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION"
+  ^
+_configtest.c:6:5: warning: function declaration isn’t a prototype [-Wstrict-prototypes]
+ int main ()
+     ^
+_configtest.c: In function ‘main’:
+_configtest.c:8:16: error: size of array ‘test_array’ is negative
+     static int test_array [1 - 2 * !(((long) (sizeof (npy_check_sizeof_type))) == sizeof(signed char))];
+                ^
+_configtest.c:8:16: warning: variable ‘test_array’ set but not used [-Wunused-but-set-variable]
+In file included from /home/josh/anaconda/lib/python2.7/site-packages/numpy/core/include/numpy/ndarrayobject.h:26:0,
+                 from /home/josh/anaconda/lib/python2.7/site-packages/numpy/core/include/numpy/arrayobject.h:15,
+                 from _configtest.c:2:
+_configtest.c: At top level:
+/home/josh/anaconda/lib/python2.7/site-packages/numpy/core/include/numpy/__multiarray_api.h:1594:1: warning: ‘_import_array’ defined but not used [-Wunused-function]
+ _import_array(void)
+ ^
+[39mC compiler: gcc -pthread -fno-strict-aliasing -g -O2 -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC
+[0m
+[39mcompile options: '-I/home/josh/anaconda/include/python2.7 -I/home/josh/anaconda/lib/python2.7/site-packages/numpy/core/include -c'[0m
+[39mgcc: _configtest.c[0m
+In file included from /home/josh/anaconda/lib/python2.7/site-packages/numpy/core/include/numpy/ndarraytypes.h:1728:0,
+                 from /home/josh/anaconda/lib/python2.7/site-packages/numpy/core/include/numpy/ndarrayobject.h:17,
+                 from /home/josh/anaconda/lib/python2.7/site-packages/numpy/core/include/numpy/arrayobject.h:15,
+                 from _configtest.c:2:
+/home/josh/anaconda/lib/python2.7/site-packages/numpy/core/include/numpy/npy_deprecated_api.h:11:2: warning: #warning "Using deprecated NumPy API, disable it by #defining NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION" [-Wcpp]
+ #warning "Using deprecated NumPy API, disable it by #defining NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION"
+  ^
+_configtest.c:6:5: warning: function declaration isn’t a prototype [-Wstrict-prototypes]
+ int main ()
+     ^
+_configtest.c: In function ‘main’:
+_configtest.c:8:16: error: size of array ‘test_array’ is negative
+     static int test_array [1 - 2 * !(((long) (sizeof (npy_check_sizeof_type))) == sizeof(short int))];
+                ^
+_configtest.c:8:16: warning: variable ‘test_array’ set but not used [-Wunused-but-set-variable]
+In file included from /home/josh/anaconda/lib/python2.7/site-packages/numpy/core/include/numpy/ndarrayobject.h:26:0,
+                 from /home/josh/anaconda/lib/python2.7/site-packages/numpy/core/include/numpy/arrayobject.h:15,
+                 from _configtest.c:2:
+_configtest.c: At top level:
+/home/josh/anaconda/lib/python2.7/site-packages/numpy/core/include/numpy/__multiarray_api.h:1594:1: warning: ‘_import_array’ defined but not used [-Wunused-function]
+ _import_array(void)
+ ^
+[39mC compiler: gcc -pthread -fno-strict-aliasing -g -O2 -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC
+[0m
+[39mcompile options: '-I/home/josh/anaconda/include/python2.7 -I/home/josh/anaconda/lib/python2.7/site-packages/numpy/core/include -c'[0m
+[39mgcc: _configtest.c[0m
+In file included from /home/josh/anaconda/lib/python2.7/site-packages/numpy/core/include/numpy/ndarraytypes.h:1728:0,
+                 from /home/josh/anaconda/lib/python2.7/site-packages/numpy/core/include/numpy/ndarrayobject.h:17,
+                 from /home/josh/anaconda/lib/python2.7/site-packages/numpy/core/include/numpy/arrayobject.h:15,
+                 from _configtest.c:2:
+/home/josh/anaconda/lib/python2.7/site-packages/numpy/core/include/numpy/npy_deprecated_api.h:11:2: warning: #warning "Using deprecated NumPy API, disable it by #defining NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION" [-Wcpp]
+ #warning "Using deprecated NumPy API, disable it by #defining NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION"
+  ^
+_configtest.c:6:5: warning: function declaration isn’t a prototype [-Wstrict-prototypes]
+ int main ()
+     ^
+_configtest.c: In function ‘main’:
+_configtest.c:8:16: error: size of array ‘test_array’ is negative
+     static int test_array [1 - 2 * !(((long) (sizeof (npy_check_sizeof_type))) == sizeof(int))];
+                ^
+_configtest.c:8:16: warning: variable ‘test_array’ set but not used [-Wunused-but-set-variable]
+In file included from /home/josh/anaconda/lib/python2.7/site-packages/numpy/core/include/numpy/ndarrayobject.h:26:0,
+                 from /home/josh/anaconda/lib/python2.7/site-packages/numpy/core/include/numpy/arrayobject.h:15,
+                 from _configtest.c:2:
+_configtest.c: At top level:
+/home/josh/anaconda/lib/python2.7/site-packages/numpy/core/include/numpy/__multiarray_api.h:1594:1: warning: ‘_import_array’ defined but not used [-Wunused-function]
+ _import_array(void)
+ ^
+[39mC compiler: gcc -pthread -fno-strict-aliasing -g -O2 -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC
+[0m
+[39mcompile options: '-I/home/josh/anaconda/include/python2.7 -I/home/josh/anaconda/lib/python2.7/site-packages/numpy/core/include -c'[0m
+[39mgcc: _configtest.c[0m
+[39mremoving: _configtest.c _configtest.o _configtest.c _configtest.o _configtest.c _configtest.o _configtest.c _configtest.o[0m
+
+subroutine outer(a)
+  use, intrinsic :: iso_c_binding
+  implicit none
+  real(kind=c_float), intent(inout) :: a
+  interface
+    subroutine inner(a)
+      use, intrinsic :: iso_c_binding
+      implicit none
+      real(kind=8), intent(inout) :: a
+    end subroutine inner
+  end interface
+  call inner(a)
+end subroutine outer
+
+[39mFortran f77 compiler: /usr/bin/gfortran-4.8 -Wall -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran-4.8 -Wall -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran-4.8 -Wall -ffixed-form -fno-second-underscore -Wall -fno-second-underscore -fPIC -O3 -funroll-loops[0m
+[39mcompile options: '-c'[0m
+[39mgfortran-4.8:f90: _configtest.f90[0m
+_configtest.f90:13.13:
+
+  call inner(a)
+             1
+Error: Type mismatch in argument 'a' at (1); passed REAL(4) to REAL(8)
+[39mfailure.[0m
+[39mremoving: _configtest.f90 _configtest.o[0m
+
+subroutine outer(a)
+  use, intrinsic :: iso_c_binding
+  implicit none
+  real(kind=c_double), intent(inout) :: a
+  interface
+    subroutine inner(a)
+      use, intrinsic :: iso_c_binding
+      implicit none
+      real(kind=8), intent(inout) :: a
+    end subroutine inner
+  end interface
+  call inner(a)
+end subroutine outer
+
+[39mFortran f77 compiler: /usr/bin/gfortran-4.8 -Wall -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran-4.8 -Wall -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran-4.8 -Wall -ffixed-form -fno-second-underscore -Wall -fno-second-underscore -fPIC -O3 -funroll-loops[0m
+[39mcompile options: '-c'[0m
+[39mgfortran-4.8:f90: _configtest.f90[0m
+[39msuccess![0m
+[39mremoving: _configtest.f90 _configtest.o[0m
+[39m  adding 'fwrap_ktp_mod.f90' to sources.[0m
+[39mcythoning one_arg.pyx to one_arg.c[0m
+warning: fwrap_ktp.pxd:1:0: 'python_string' is deprecated, use 'cpython'
+[39mbuild_src: building npy-pkg config files[0m
+[39mrunning build_ext[0m
+[39mcustomize UnixCCompiler[0m
+[39mcustomize UnixCCompiler using fw_build_ext[0m
+[39mcustomize Gnu95FCompiler[0m
+[39mcustomize Gnu95FCompiler using fw_build_ext[0m
+[39mbuilding 'one_arg' extension[0m
+[39mcompiling C sources[0m
+[39mC compiler: gcc -pthread -fno-strict-aliasing -g -O2 -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC
+[0m
+[39mcreating build[0m
+[39mcreating build/temp.linux-x86_64-2.7[0m
+[39mcompile options: '-I/home/josh/anaconda/lib/python2.7/site-packages/numpy/core/include -I/home/josh/anaconda/include/python2.7 -c'[0m
+[39mgcc: one_arg.c[0m
+[39mcompiling Fortran 90 module sources[0m
+[39mFortran f77 compiler: /usr/bin/gfortran-4.8 -Wall -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran-4.8 -Wall -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran-4.8 -Wall -ffixed-form -fno-second-underscore -Wall -fno-second-underscore -fPIC -O3 -funroll-loops[0m
+[39mcompile options: '-I/home/josh/anaconda/lib/python2.7/site-packages/numpy/core/include -I/home/josh/anaconda/include/python2.7 -c'
+extra options: '-Jbuild/temp.linux-x86_64-2.7/ -Ibuild/temp.linux-x86_64-2.7/'[0m
+[39mgfortran-4.8:f90: fwrap_ktp_mod.f90[0m
+[39mcompiling Fortran sources[0m
+[39mFortran f77 compiler: /usr/bin/gfortran-4.8 -Wall -ffixed-form -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran f90 compiler: /usr/bin/gfortran-4.8 -Wall -fno-second-underscore -fPIC -O3 -funroll-loops
+Fortran fix compiler: /usr/bin/gfortran-4.8 -Wall -ffixed-form -fno-second-underscore -Wall -fno-second-underscore -fPIC -O3 -funroll-loops[0m
+[39mcreating build/temp.linux-x86_64-2.7/home[0m
+[39mcreating build/temp.linux-x86_64-2.7/home/josh[0m
+[39mcreating build/temp.linux-x86_64-2.7/home/josh/Desktop[0m
+[39mcreating build/temp.linux-x86_64-2.7/home/josh/Desktop/fFwrapEx[0m
+[39mcreating build/temp.linux-x86_64-2.7/home/josh/Desktop/fFwrapEx/creatorEx[0m
+[39mcompile options: '-I/home/josh/anaconda/lib/python2.7/site-packages/numpy/core/include -I/home/josh/anaconda/include/python2.7 -c'
+extra options: '-Jbuild/temp.linux-x86_64-2.7/ -Ibuild/temp.linux-x86_64-2.7/'[0m
+[39mgfortran-4.8:f90: /home/josh/Desktop/fFwrapEx/creatorEx/source.f90[0m
+[39mgfortran-4.8:f90: one_arg_fc.f90[0m
+[39mgcc -pthread -shared build/temp.linux-x86_64-2.7/one_arg.o build/temp.linux-x86_64-2.7/fwrap_ktp_mod.o build/temp.linux-x86_64-2.7/home/josh/Desktop/fFwrapEx/creatorEx/source.o build/temp.linux-x86_64-2.7/one_arg_fc.o -L/usr/lib/gcc/x86_linux-gnu/4.8.2 -L/home/josh/anaconda/lib -lgfortran -lpython2.7 -o one_arg.so[0m
+[39mrunning scons[0m
