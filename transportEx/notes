@@ -4,8 +4,10 @@ The compile and debug scripts all used the proprietary ifort compiler to comiple
 to compile the fortran 90 code.  I changed "ifort" to "gfortran" to compile the code.
 Because of this, I had to change the compiler flags. 
 
+See ifortFlags and gfortFlags files for flag meanings.
+
 Here is the translation betewen them:
-  ifort          gfortran    Flag meaningd
+  ifort            gfortran   
   -c
   -g
   -traceback
