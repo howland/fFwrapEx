@@ -4,12 +4,18 @@ The compile and debug scripts all used the proprietary ifort compiler to comiple
 to compile the fortran 90 code.  I changed "ifort" to "gfortran" to compile the code.
 Because of this, I had to change the compiler flags. 
 
-See ifortFlags and gfortFlags files for flag meanings.
+See ifortFlags and gnuFlags files for flag meanings.
 
 Here is the translation betewen them:
-  ifort            gfortran   
-  -c
+  ifort            gfortran/gnu   
+  -c               not nessesary?
   -g
   -traceback
   -check all
   -fpe0 <xx>
+  -r8
+  -03
+
+Here is a helpful article for converting flags.  Not nearly complete though..
+  https://lists.gnu.org/archive/html/autoconf/2011-02/msg00012.html
+

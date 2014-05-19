@@ -1,4 +1,4 @@
-ifort Compiler flags:
+Usefull ifort Compiler flags:
 
   source: http://geco.mines.edu/guide/ifort.html
        -c
