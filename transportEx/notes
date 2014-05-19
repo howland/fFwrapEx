@@ -1,0 +1,13 @@
+NOTES FOR TRANSPORT EQUATION WRAPPING EXAMPLE:
+
+The compile and debug scripts all used the proprietary ifort compiler to comipler
+to compile the fortran 90 code.  I changed "ifort" to "gfortran" to compile the code.
+Because of this, I had to change the compiler flags. 
+
+Here is the translation betewen them:
+  ifort          gfortran    Flag meaningd
+  -c
+  -g
+  -traceback
+  -check all
+  -fpe0 <xx>
