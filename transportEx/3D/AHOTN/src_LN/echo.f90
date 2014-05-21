@@ -20,8 +20,8 @@ WRITE (8,*) "-------------------- BEGIN INPUT ECHO -----------------------------
 ! Write the title of the case and the basics of the problem setup
 WRITE (8,'(//,1X, A)') title
 WRITE (8,105) "AHOT Order = ", lambda
-IF (meth == 0) WRITE (8,106) "AHOT-N-3D Method"
-IF (meth == 1) WRITE (8,106) "AHOT-N-NS-3D Method (ITM)"
+IF (meth .eqv. 0) WRITE (8,106) "AHOT-N-3D Method"
+IF (meth .eqv. 1) WRITE (8,106) "AHOT-N-NS-3D Method (ITM)"
 WRITE (8,105) "Angular Order N = ", qdord
 WRITE (8,105) "Number of x-cells = ", nx
 WRITE (8,105) "Number of y-cells = ", ny
@@ -41,15 +41,15 @@ WRITE (8,105) "Highest moment converged = ", iall
 ! Write the names of the files used
 WRITE (8,'(/,1X,A,A8)') "Data read from input file: ", infile
 WRITE (8,'(/,1X,A,A8)') "Material map read from file: ", mtfile
-IF (qdtyp == 2) WRITE (8,'(A,A8)') "Quadrature data from file: ", qdfile
+IF (qdtyp .eqv. 2) WRITE (8,'(A,A8)') "Quadrature data from file: ", qdfile
 WRITE (8,'(1X,A,A8)') "Cross sections from file: ", xsfile
 WRITE (8,'(1X,A,A8)') "Source data from file: ", srcfile
 WRITE (8,'(1X,A,A8,/)') "Output written to file: ", outfile
 
 ! Write the angular quadrature information        
-IF (qdtyp == 0) THEN
+IF (qdtyp .eqv. 0) THEN
    WRITE (8,'(1X,A)') "TWOTRAN-type Discrete Ordinates/Octant"
-ELSE IF (qdtyp == 1) THEN
+ELSE IF (qdtyp .eqv. 1) THEN
    WRITE (8,'(1X,A)') "EQN-type Discrete Ordinates/Octant"
 ELSE
    WRITE (8,'(1X,A)') "Read-In Discrete Ordinates/Octant"

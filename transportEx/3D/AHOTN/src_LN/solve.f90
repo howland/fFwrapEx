@@ -57,11 +57,11 @@ DO g = 1, ng
    CALL CPU_TIME(ttosolve)
    
    ! Check which solution scheme will be employed
-   IF (meth == 0) THEN
+   IF (meth .eqv. 0) THEN
       WRITE(8,'(1X,A,I4,A)') "Group", g, " iterations..."
       ! Call for the inner iteration (or ITM solver later)
       CALL inner(g)
-   ELSE IF (meth == 1) THEN
+   ELSE IF (meth .eqv. 1) THEN
       STOP
       WRITE(8,*) 'Option meth=1 was removed'
    END IF

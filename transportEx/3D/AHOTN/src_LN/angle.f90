@@ -23,17 +23,17 @@ ALLOCATE(cs(qdord/2))
 
 ! If qdtyp is 0, use the TWOTRAN formalism
 ! Completely symmetric angular quadrature
-IF (qdtyp == 0) THEN
+IF (qdtyp .eqv. 0) THEN
    ! Set up the first values to initialize
    ! No degrees of freedom for N=2
-   IF (qdord == 2) THEN
+   IF (qdord .eqv. 2) THEN
       cs(1) = 0.57735027
    ! mu_1 selected. TWOTRAN values used
-   ELSE IF (qdord == 4) THEN
+   ELSE IF (qdord .eqv. 4) THEN
       cs(1) = 0.30163878
-   ELSE IF (qdord == 6) THEN
+   ELSE IF (qdord .eqv. 6) THEN
       cs(1) = 0.23009194
-   ELSE IF (qdord == 8) THEN
+   ELSE IF (qdord .eqv. 8) THEN
       cs(1) = 0.19232747
    ELSE
       WRITE(8,'(/,3x,A)') "ERROR: Illegal value for TWOTRAN qdord (N). Must be 2, 4, 6, or 8."
@@ -67,12 +67,12 @@ IF (qdtyp == 0) THEN
    ! N=2 and N=4 ordinates all have equal weights
    ! N=6 and N=8 have weights determined more rigorously
    ! Weights are normalized that sum is 0.25 per octant/quadrant
-   IF (qdord == 2 .OR. qdord == 4) THEN
+   IF (qdord .eqv. 2 .OR. qdord .eqv. 4) THEN
       tmp = 0.125/REAL(l)
       DO i = 1, l
          w(i) = tmp
       END DO
-   ELSE IF (qdord == 6) THEN
+   ELSE IF (qdord .eqv. 6) THEN
       w(1) = 0.04236164
       w(2) = 0.040971693
       w(3) = w(1)
@@ -91,12 +91,12 @@ IF (qdtyp == 0) THEN
    
 ! If quadrature type is EQN, jump to here
 ELSE    
-   IF (qdord == 2) THEN
+   IF (qdord .eqv. 2) THEN
       l = 1
       ang(1,1) = 0.5773502691896257645091488
       ang(1,2) = ang(1,1)
       ang(1,3) = ang(1,1)
-   ELSE IF (qdord == 4) THEN
+   ELSE IF (qdord .eqv. 4) THEN
       l = 3
       ang(1,1) = 0.350021174582
       ang(1,2) = ang(1,1)
@@ -107,7 +107,7 @@ ELSE
       ang(3,1) = ang(1,3)
       ang(3,2) = ang(1,1)
       ang(3,3) = ang(1,1)
-   ELSE IF (qdord == 6) THEN
+   ELSE IF (qdord .eqv. 6) THEN
       l = 6
       ang(1,1) = 0.2666355
       ang(1,2) = ang(1,1)
@@ -127,7 +127,7 @@ ELSE
       ang(6,1) = ang(1,3)
       ang(6,2) = ang(1,1)
       ang(6,3) = ang(1,1)
-   ELSE IF (qdord == 8) THEN
+   ELSE IF (qdord .eqv. 8) THEN
       l=10
       ang(1,1) = 0.2182179
       ang(1,2) = ang(1,1)
@@ -159,7 +159,7 @@ ELSE
       ang(10,1)= ang(1,3)
       ang(10,2)= ang(1,1)
       ang(10,3)= ang(1,1)
-   ELSE IF (qdord == 12) THEN
+   ELSE IF (qdord .eqv. 12) THEN
       l = 21
       ang(1,1)  = 0.1672126
       ang(1,2)  = ang(1,1)
@@ -224,7 +224,7 @@ ELSE
       ang(21,1) = ang(1,3)
       ang(21,2) = ang(1,1)
       ang(21,3) = ang(1,1)
-   ELSE IF (qdord == 16) THEN
+   ELSE IF (qdord .eqv. 16) THEN
       l=36
       ang(1,1)  = 0.1389568
       ang(1,2)  = ang(1,1)
@@ -340,19 +340,19 @@ ELSE
    END IF
    
    ! Enter weights for EQN type quadrature
-   IF (qdord == 2 .OR. qdord == 4) THEN
+   IF (qdord .eqv. 2 .OR. qdord .eqv. 4) THEN
       tmp = 1.0/REAL(l)
       DO i = 1, l
          w(i) = tmp
       END DO
-   ELSE IF (qdord == 6) THEN
+   ELSE IF (qdord .eqv. 6) THEN
       w(1) = 0.1761263
       w(2) = 0.1572071
       w(3) = w(1)
       w(4) = w(2)
       w(5) = w(2)
       w(6) = w(1)
-   ELSE IF (qdord == 8) THEN
+   ELSE IF (qdord .eqv. 8) THEN
       w(1) = 0.1209877
       w(2) = 0.0907407
       w(3) = w(2)
@@ -363,7 +363,7 @@ ELSE
       w(8) = w(2)
       w(9) = w(2)
       w(10)= w(1)
-   ELSE IF (qdord == 12) THEN
+   ELSE IF (qdord .eqv. 12) THEN
       w(1)  = 0.0707626
       w(2)  = 0.0558811
       w(3)  = 0.0373377
@@ -385,7 +385,7 @@ ELSE
       w(19) = w(2)
       w(20) = w(2)
       w(21) = w(1)
-   ELSE IF (qdord == 16) THEN
+   ELSE IF (qdord .eqv. 16) THEN
       w(1)  = 0.0489872
       w(2)  = 0.0413296
       w(3)  = 0.0212326
