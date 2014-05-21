@@ -27,7 +27,7 @@ LOGICAL :: existence
 ! Get information about the input and output files and check
 CALL GETARG (1, infile, statin)
 CALL GETARG (2, outfile, statout)
-IF (statin .eqv. -1 .OR. statout .eqv. -1) THEN
+IF (statin == -1 .OR. statout == -1) THEN
     PRINT *, "Failed reading input and output file names."
     STOP
 END IF
@@ -70,7 +70,7 @@ CALL CPU_TIME(tend)
 WRITE(8,'(/,2X,A,/)') "Fortran95 Timing Estimates with CPU_TIME..."
 WRITE(8,100)
 WRITE(8,101) "InputWrk", ttosolve, ttosolve
-IF (meth .eqv. 1) THEN
+IF (meth == 1) THEN
    WRITE(8,101) "MakeJMAT", tjmat, tjmat-ttosolve
    WRITE(8,101) "SolveITM", tsolve, tsolve-tjmat
 END IF
@@ -86,12 +86,12 @@ DEALLOCATE(dx,dy,mat,ssum,ang,w,sigt,sigs,s) !,f,e)
 IF ( ALLOCATED(frbc) ) THEN
    DEALLOCATE(frbc,babc,lebc,ribc,bobc,tobc)
 END IF
-IF (meth .eqv. 1) THEN
+IF (meth == 1) THEN
    DEALLOCATE(amat,bmat,gmat,jmat,gaa,gaxy,gaxz,gayz)
    DEALLOCATE(gxya,gxyxy,gxyxz,gxyyz,gxza,gxzxy,gxzxz,gxzyz)
    DEALLOCATE(gyza,gyzxy,gyzxz,gyzyz,xmat,ymat,zmat)
 END IF
-IF (momsum .eqv. 1) THEN
+IF (momsum == 1) THEN
    DEALLOCATE(phisum)
 END IF
 

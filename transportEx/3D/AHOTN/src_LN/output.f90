@@ -12,7 +12,7 @@ IMPLICIT NONE
 INTEGER :: i, j, k, t, u, v, g
 
 ! First check if sum is going to be printed
-IF (momsum .eqv. 1) THEN
+IF (momsum == 1) THEN
    ALLOCATE(phisum(nx,ny,nz,ng))
    phisum = 0.0
 END IF
@@ -20,7 +20,7 @@ END IF
 ! Start the echo of the output for each group
 DO g = 1, ng   
    ! Check if the flux converged
-   IF (cnvf(g) .eqv. 1) THEN
+   IF (cnvf(g) == 1) THEN
       WRITE (8,*)
       WRITE (8,112) "========== Group ", g, " Converged Scalar Flux Zero Moment =========="
       t = 0
@@ -33,7 +33,7 @@ DO g = 1, ng
          END DO
       END DO
       ! Call for the sum of the scalar flux moments if requested by momsum = 1
-   !    IF (momsum .eqv. 1) THEN
+   !    IF (momsum == 1) THEN
    !      CALL fluxsum(g)
    !       WRITE (8,*)
    !       WRITE (8,115) "---------- Group ", g, " Cell-Center Scalar Flux Moments Sum ----------"
@@ -46,14 +46,14 @@ DO g = 1, ng
 END DO
 
 ! Determine if the user wants the flux at specific points
-! IF (mompt .eqv. 1) THEN
+! IF (mompt == 1) THEN
    ! Call for the subroutine that operates the scalar flux at a point computations
 ! NOT READY YET
 !    CALL fluxpoint
 ! END IF
 
 ! Determine if the user wants the flux from the four quadrants
-! IF (qdflx .eqv. 1) THEN
+! IF (qdflx == 1) THEN
 !    CALL qdrntflux
 ! END IF
 

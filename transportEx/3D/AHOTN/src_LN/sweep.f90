@@ -36,14 +36,14 @@ DO n = 1, apo
    
    ! Loop over xi<0 then xi>0
    DO zdir = 1, 2
-      IF (zdir .eqv. 1) THEN
+      IF (zdir == 1) THEN
          zs = nz
          ze = 1
          incz = -1
          ! Set boundary conditions
-         IF (zebc .eqv. 0) THEN
+         IF (zebc==0) THEN
             fz=0.0
-         ELSE IF (zebc .eqv. 2) THEN
+         ELSE IF (zebc==2) THEN
             !
             DO iy=1,ny
                DO ix=1,nx
@@ -65,16 +65,16 @@ DO n = 1, apo
             END DO
             !
          END IF
-      ELSE IF (zdir .eqv. 2) THEN
+      ELSE IF (zdir == 2) THEN
          zs = 1
          ze = nz
          incz = 1
          ! Set boundary conditions
-         IF (zsbc .eqv. 0) THEN
+         IF (zsbc==0) THEN
             fz=0.0
-         ELSE IF (zsbc .eqv. 1) THEN
+         ELSE IF (zsbc==1) THEN
             fz = zsbc*fz
-         ELSE IF (zsbc .eqv. 2) THEN
+         ELSE IF (zsbc==2) THEN
             !
             DO iy=1,ny
                DO ix=1,nx
@@ -105,15 +105,15 @@ DO n = 1, apo
    
       ! Loop over eta<0 then eta>0
       DO ydir = 1, 2
-         IF (ydir .eqv. 1) THEN
+         IF (ydir == 1) THEN
             ys = ny
             ye = 1
             incy = -1
             nfz = 1
             ! Set back face boundary conditions 
-            IF (yebc .eqv. 0) THEN
+            IF (yebc==0) THEN
               fy=0.0
-            ELSE IF (yebc .eqv. 2 .and. incz>0 ) THEN
+            ELSE IF (yebc==2 .and. incz>0 ) THEN
               !
               DO ix=1,nx
                  fy(1,ix,1)=babc(0,0,ix,k,n,2) ! xi>0, mu<0
@@ -124,7 +124,7 @@ DO n = 1, apo
                  fy(3,ix,2)=babc(1,0,ix,k,n,1) ! xi>0, mu>0
               END DO
               !
-            ELSE IF (yebc .eqv. 2 .and. incz<0 ) THEN
+            ELSE IF (yebc==2 .and. incz<0 ) THEN
               !
               DO ix=1,nx
                  fy(1,ix,1)=babc(0,0,ix,k,n,4) ! xi<0, mu<0
@@ -137,17 +137,17 @@ DO n = 1, apo
               !
             END IF 
             ! 
-         ELSE IF (ydir .eqv. 2) THEN
+         ELSE IF (ydir == 2) THEN
             ys = 1
             ye = ny
             incy = 1
             nfz = 2
             ! Set front face boundary conditions 
-            IF (ysbc .eqv. 0) THEN
+            IF (ysbc==0) THEN
               fy=0.0
-            ELSE IF (ysbc .eqv. 1) THEN
+            ELSE IF (ysbc==1) THEN
               fy = fy          
-            ELSE IF (ysbc .eqv. 2 .and. incz>0 ) THEN
+            ELSE IF (ysbc==2 .and. incz>0 ) THEN
               !
               DO ix=1,nx
                  fy(1,ix,1)=frbc(0,0,ix,k,n,2) ! xi>0, mu<0
@@ -158,7 +158,7 @@ DO n = 1, apo
                  fy(3,ix,2)=frbc(1,0,ix,k,n,1) ! xi>0, mu>0
               END DO
               !
-            ELSE IF (ysbc .eqv. 2 .and. incz<0 ) THEN
+            ELSE IF (ysbc==2 .and. incz<0 ) THEN
               !
               DO ix=1,nx
                  fy(1,ix,1)=frbc(0,0,ix,k,n,4) ! xi<0, mu<0
@@ -178,53 +178,53 @@ DO n = 1, apo
       
          ! Perform two loops, one in negative x-direction, then positive
          DO xdir = 1, 2
-            IF (xdir .eqv. 1) THEN
+            IF (xdir == 1) THEN
                xs = nx
                xe = 1
                incx = -1
                nfy = 1
-               IF(xebc .eqv. 0) THEN
+               IF(xebc==0) THEN
                   fx=0.0
-               ELSE IF(xebc .eqv. 2 .and. incy>0 .and. incz>0) THEN
+               ELSE IF(xebc==2 .and. incy>0 .and. incz>0) THEN
                   fx(1)=ribc(0,0,j,k,n,1)
                   fx(2)=ribc(0,1,j,k,n,1)
                   fx(3)=ribc(1,0,j,k,n,1)
-               ELSE IF(xebc .eqv. 2 .and. incy>0 .and. incz<0) THEN
+               ELSE IF(xebc==2 .and. incy>0 .and. incz<0) THEN
                   fx(1)=ribc(0,0,j,k,n,2)
                   fx(2)=ribc(0,1,j,k,n,2)
                   fx(3)=ribc(1,0,j,k,n,2)
-               ELSE IF(xebc .eqv. 2 .and. incy<0 .and. incz>0) THEN
+               ELSE IF(xebc==2 .and. incy<0 .and. incz>0) THEN
                   fx(1)=ribc(0,0,j,k,n,3)
                   fx(2)=ribc(0,1,j,k,n,3)
                   fx(3)=ribc(1,0,j,k,n,3)
-               ELSE IF(xebc .eqv. 2 .and. incy<0 .and. incz<0) THEN
+               ELSE IF(xebc==2 .and. incy<0 .and. incz<0) THEN
                   fx(1)=ribc(0,0,j,k,n,4)
                   fx(2)=ribc(0,1,j,k,n,4)
                   fx(3)=ribc(1,0,j,k,n,4)
                END IF
-            ELSE IF (xdir .eqv. 2) THEN
+            ELSE IF (xdir == 2) THEN
                xs = 1
                xe = nx
                incx = 1
                nfy = 2
                ! Reset the incoming x-flux for the x-lo bc
-               IF(xsbc .eqv. 0) THEN
+               IF(xsbc==0) THEN
                   fx=0.0
-               ELSE IF(xsbc .eqv. 1) THEN
+               ELSE IF(xsbc==1) THEN
                   fx=fx
-               ELSE IF(xsbc .eqv. 2 .and. incy>0 .and. incz>0) THEN
+               ELSE IF(xsbc==2 .and. incy>0 .and. incz>0) THEN
                   fx(1)=lebc(0,0,j,k,n,1)
                   fx(2)=lebc(0,1,j,k,n,1)
                   fx(3)=lebc(1,0,j,k,n,1)
-               ELSE IF(xsbc .eqv. 2 .and. incy>0 .and. incz<0) THEN
+               ELSE IF(xsbc==2 .and. incy>0 .and. incz<0) THEN
                   fx(1)=lebc(0,0,j,k,n,2)
                   fx(2)=lebc(0,1,j,k,n,2)
                   fx(3)=lebc(1,0,j,k,n,2)
-               ELSE IF(xsbc .eqv. 2 .and. incy<0 .and. incz>0) THEN
+               ELSE IF(xsbc==2 .and. incy<0 .and. incz>0) THEN
                   fx(1)=lebc(0,0,j,k,n,3)
                   fx(2)=lebc(0,1,j,k,n,3)
                   fx(3)=lebc(1,0,j,k,n,3)
-               ELSE IF(xsbc .eqv. 2 .and. incy<0 .and. incz<0) THEN
+               ELSE IF(xsbc==2 .and. incy<0 .and. incz<0) THEN
                   fx(1)=lebc(0,0,j,k,n,4)
                   fx(2)=lebc(0,1,j,k,n,4)
                   fx(3)=lebc(1,0,j,k,n,4)

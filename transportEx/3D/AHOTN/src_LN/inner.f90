@@ -77,7 +77,7 @@ DO it = 1, itmx
       WRITE (8,'(2X,A,F9.3,A)') "Final iteration time ", titer-told, " seconds"
       cnvf(g) = 1
       EXIT
-   ELSE IF (it .eqv. itmx) THEN
+   ELSE IF (it == itmx) THEN
       WRITE (8,*)
       WRITE (8,*) "  Group ", g, " did not converge in maximum number of iterations ", itmx
       WRITE (8,'(2X,A,ES11.3,A,ES11.3,A,ES11.3)') "Max error = ", dfmx, " > ", err, " And flux = ", f(vd,id,jd,kd,gd)

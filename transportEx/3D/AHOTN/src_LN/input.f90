@@ -130,9 +130,9 @@ CALL readmt(mtfile)
  
 ! Angular quadrature
 ALLOCATE(ang(apo,3), w(apo))
-IF (qdtyp .eqv. 2) THEN
+IF (qdtyp == 2) THEN
    INQUIRE(FILE=qdfile, EXIST=ex3)
-   IF (qdfile .eqv. '        ' .OR. ex3 .eqv. .FALSE.) THEN
+   IF (qdfile == '        ' .OR. ex3 .eqv. .FALSE.) THEN
       WRITE(8,'(/,3x,A)') "ERROR: illegal entry for the qdfile name."
       STOP
    END IF
@@ -148,7 +148,7 @@ ELSE
    CALL angle
 END IF
 
-IF (qdtyp .eqv. 2) CLOSE(UNIT=10)
+IF (qdtyp == 2) CLOSE(UNIT=10)
 
    ! Call for the input check
 CALL check
