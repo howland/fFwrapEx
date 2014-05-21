@@ -18,4 +18,5 @@ Here is the translation betewen them:
 
 Here is a helpful article for converting flags.  Not nearly complete though..
   https://lists.gnu.org/archive/html/autoconf/2011-02/msg00012.html
-
+Compiler flag comparison table (VERY HELPFUL):
+  http://www.fortran-2000.com/ArnaudRecipes/CompilerTricks.html#CompTable_fortran
