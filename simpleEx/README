@@ -1,0 +1,13 @@
+This is a simple example of how to access a fortran function from Python.
+
+To build:
+> f2py -c hello.f90 -m hello
+
+This should produce hello.so
+
+open Python
+
+> import hello
+
+> hello.hello(#)
+
