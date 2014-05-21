@@ -1,0 +1,159 @@
+Instances of "==" that need to be changed:
+
+r: Logicals at (1) must be compared with .eqv. instead of ==
+
+output.f90:IF (momsum == 1) THEN
+output.f90:   IF (cnvf(g) == 1) THEN
+output.f90:      WRITE (8,112) "========== Group ", g, " Converged Scalar Flux Zero Moment =========="
+output.f90:   !    IF (momsum == 1) THEN
+output.f90:! IF (mompt == 1) THEN
+output.f90:! IF (qdflx == 1) THEN
+main.f90:IF (statin == -1 .OR. statout == -1) THEN
+main.f90:IF (existence == .TRUE.) THEN
+main.f90:IF (meth == 1) THEN
+main.f90:IF (meth == 1) THEN
+main.f90:IF (momsum == 1) THEN
+echo.f90:IF (meth == 0) WRITE (8,106) "AHOT-N-3D Method"
+echo.f90:IF (meth == 1) WRITE (8,106) "AHOT-N-NS-3D Method (ITM)"
+echo.f90:IF (qdtyp == 2) WRITE (8,'(A,A8)') "Quadrature data from file: ", qdfile
+echo.f90:IF (qdtyp == 0) THEN
+echo.f90:ELSE IF (qdtyp == 1) THEN
+angle.f90:IF (qdtyp == 0) THEN
+angle.f90:   IF (qdord == 2) THEN
+angle.f90:   ELSE IF (qdord == 4) THEN
+angle.f90:   ELSE IF (qdord == 6) THEN
+angle.f90:   ELSE IF (qdord == 8) THEN
+angle.f90:   IF (qdord == 2 .OR. qdord == 4) THEN
+angle.f90:   ELSE IF (qdord == 6) THEN
+angle.f90:   IF (qdord == 2) THEN
+angle.f90:   ELSE IF (qdord == 4) THEN
+angle.f90:   ELSE IF (qdord == 6) THEN
+angle.f90:   ELSE IF (qdord == 8) THEN
+angle.f90:   ELSE IF (qdord == 12) THEN
+angle.f90:   ELSE IF (qdord == 16) THEN
+angle.f90:   IF (qdord == 2 .OR. qdord == 4) THEN
+angle.f90:   ELSE IF (qdord == 6) THEN
+angle.f90:   ELSE IF (qdord == 8) THEN
+angle.f90:   ELSE IF (qdord == 12) THEN
+angle.f90:   ELSE IF (qdord == 16) THEN
+input.f90:IF (ex1 == .FALSE. .OR. ex2 == .FALSE. .OR. ex4 == .FALSE.) THEN
+input.f90:IF (qdtyp == 2) THEN
+input.f90:   IF (qdfile == '        ' .OR. ex3 == .FALSE.) THEN
+input.f90:IF (qdtyp == 2) CLOSE(UNIT=10)
+fixNotes:IF (existence == .TRUE.) THEN
+fixNotes:Error: Logicals at (1) must be compared with .eqv. instead of ==
+fixNotes:IF (ex1 == .FALSE. .OR. ex2 == .FALSE. .OR. ex4 == .FALSE.) THEN
+fixNotes:Error: Logicals at (1) must be compared with .eqv. instead of ==
+fixNotes:   IF (qdfile == '        ' .OR. ex3 == .FALSE.) THEN
+fixNotes:Error: Logicals at (1) must be compared with .eqv. instead of ==
+fixNotes:IF (existence == .TRUE.) THEN
+fixNotes:Error: Logicals at (1) must be compared with .eqv. instead of ==
+output_phi.f90:IF (existence == .TRUE.) THEN
+p.f90:IF (k == 0) THEN
+p.f90:ELSE IF (k == 1) THEN
+p.f90:ELSE IF (k == 2) THEN
+p.f90:ELSE IF (k == 3) THEN
+p.f90:ELSE IF (k == 4) THEN
+p.f90:ELSE IF (k == 5) THEN
+p.f90:ELSE IF (k == 6) THEN
+p.f90:ELSE IF (k == 7) THEN
+p.f90:ELSE IF (k == 8) THEN
+sweep.f90:      IF (zdir == 1) THEN
+sweep.f90:         IF (zebc==0) THEN
+sweep.f90:         ELSE IF (zebc==2) THEN
+sweep.f90:      ELSE IF (zdir == 2) THEN
+sweep.f90:         IF (zsbc==0) THEN
+sweep.f90:         ELSE IF (zsbc==1) THEN
+sweep.f90:         ELSE IF (zsbc==2) THEN
+sweep.f90:         IF (ydir == 1) THEN
+sweep.f90:            IF (yebc==0) THEN
+sweep.f90:            ELSE IF (yebc==2 .and. incz>0 ) THEN
+sweep.f90:            ELSE IF (yebc==2 .and. incz<0 ) THEN
+sweep.f90:         ELSE IF (ydir == 2) THEN
+sweep.f90:            IF (ysbc==0) THEN
+sweep.f90:            ELSE IF (ysbc==1) THEN
+sweep.f90:            ELSE IF (ysbc==2 .and. incz>0 ) THEN
+sweep.f90:            ELSE IF (ysbc==2 .and. incz<0 ) THEN
+sweep.f90:            IF (xdir == 1) THEN
+sweep.f90:               IF(xebc==0) THEN
+sweep.f90:               ELSE IF(xebc==2 .and. incy>0 .and. incz>0) THEN
+sweep.f90:               ELSE IF(xebc==2 .and. incy>0 .and. incz<0) THEN
+sweep.f90:               ELSE IF(xebc==2 .and. incy<0 .and. incz>0) THEN
+sweep.f90:               ELSE IF(xebc==2 .and. incy<0 .and. incz<0) THEN
+sweep.f90:            ELSE IF (xdir == 2) THEN
+sweep.f90:               IF(xsbc==0) THEN
+sweep.f90:               ELSE IF(xsbc==1) THEN
+sweep.f90:               ELSE IF(xsbc==2 .and. incy>0 .and. incz>0) THEN
+sweep.f90:               ELSE IF(xsbc==2 .and. incy>0 .and. incz<0) THEN
+sweep.f90:               ELSE IF(xsbc==2 .and. incy<0 .and. incz>0) THEN
+sweep.f90:               ELSE IF(xsbc==2 .and. incy<0 .and. incz<0) THEN
+solve.f90:   IF (meth == 0) THEN
+solve.f90:   ELSE IF (meth == 1) THEN
+inner.f90:   ELSE IF (it == itmx) THEN
+
+
+
+
+
+
+
+
+Error when compiling with ./compile and no changes to code	
+
+
+@josh-ThinkPad-W530:~/Desktop/fFwrapEx/transportEx/3D/AHOTN/src_LN$ ./compile
+main.f90:28.31:
+
+CALL GETARG (1, infile, statin)
+                               1
+Error: Too many arguments in call to 'getarg' at (1)
+main.f90:29.33:
+
+CALL GETARG (2, outfile, statout)
+                                 1
+Error: Too many arguments in call to 'getarg' at (1)
+main.f90:40.4:
+
+IF (existence == .TRUE.) THEN
+    1
+Error: Logicals at (1) must be compared with .eqv. instead of ==
+input.f90:97.43:
+
+IF (ex1 == .FALSE. .OR. ex2 == .FALSE. .OR. ex4 == .FALSE.) THEN
+                                           1
+Error: Logicals at (1) must be compared with .eqv. instead of ==
+input.f90:135.32:
+
+   IF (qdfile == '        ' .OR. ex3 == .FALSE.) THEN
+                                1
+Error: Logicals at (1) must be compared with .eqv. instead of ==
+output_phi.f90:18.4:
+
+IF (existence == .TRUE.) THEN
+    1
+Error: Logicals at (1) must be compared with .eqv. instead of ==
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 0 has invalid symbol index 11
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 1 has invalid symbol index 12
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 2 has invalid symbol index 2
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 3 has invalid symbol index 2
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 4 has invalid symbol index 11
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 5 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 6 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 7 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 8 has invalid symbol index 12
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 9 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 10 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 11 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 12 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 13 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 14 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 15 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 16 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 17 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 18 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 19 has invalid symbol index 21
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_line): relocation 0 has invalid symbol index 2
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o: In function `_start':
+(.text+0x20): undefined reference to `main'
+collect2: error: ld returned 1 exit status
+
