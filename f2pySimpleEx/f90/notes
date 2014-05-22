@@ -1,0 +1,10 @@
+NOTES FOR F90 F2PY WRAPPING:
+
+To wrap:
+
+f2py -c -m hello hello.f
+
+To use in python:
+
+import hello
+hello.hello(1.d)
